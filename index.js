@@ -35,8 +35,9 @@ app.use("/vetapi/producto", require("./routes/producto"));
 app.use("/vetapi/servicio", require("./routes/servicio"));
 app.use("/vetapi/usuario", require("./routes/usuario"));
 //listen port      GET POST  DELETE PUT
-const port = process.env.PORT;
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+app.listen(port, host, () => {
   console.log(`Servidor esta siendo ejecutado en el puerto ${port}`);
 });
