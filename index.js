@@ -1,28 +1,29 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("dotenv").config();
+const pgp = require('pg-promise')(/* options */)
+const db = pgp(`postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@ep-rapid-hill-715294.cloud.neon.tech/servivet?sslmode=require`)
 
 // usar los metodos de las librerias
 const app = express();
-require("dotenv").config();
+
 
 //Middlewares
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cors());
 
+
 //base de datos
-mongoose
-  .connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    //useCreateIndex:true,
-    useUnifiedTopology: true,
+db.one('SELECT * FROM pais')
+  .then((data) => {
+    console.log('DATA:', data)
   })
-  .then(() => {
-    console.log("Base de datos conectada");
-  });
+  .catch((error) => {
+    console.log('ERROR:', error)
+  })
 
 //routes setup
 //app.get("/", (req, res) => {
