@@ -9,6 +9,7 @@ const {
 
 const USUARIO_FIELDS = {
     id_usuario: { type: GraphQLInt },
+    id_veterinaria: { type: GraphQLInt },
     correo: { type: GraphQLString },
     clave: { type: GraphQLString },
     nombres: { type: GraphQLString },
@@ -17,11 +18,8 @@ const USUARIO_FIELDS = {
     id_pais: { type: GraphQLInt },
     id_rol: { type: GraphQLInt },
     direccion: { type: GraphQLString },
-    token_comprobacion: { type: GraphQLString },
-    activa_cuenta: { type: GraphQLBoolean },
     fecha_creacion: { type: GraphQLString },
     es_activa: { type: GraphQLBoolean },
-    token_sesion: { type: GraphQLString },
 }
 
 const UsuarioType = new GraphQLObjectType({

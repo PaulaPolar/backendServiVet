@@ -10,17 +10,24 @@ const { authenticate } = require('./middlewares/auth')
 // usar los metodos de las librerias
 const app = express();
 
+//Cors
+app.use(cors());
+
 
 app.use('/sesion', graphqlHTTP({
   schema: sign_in_up,
   graphiql: true
 }))
 
-//Middlewares
+//Authentication
 app.use(authenticate)
+//Middlewares
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-app.use(cors());
+
+
+
+
 
 
 const host = process.env.HOST || '0.0.0.0';
