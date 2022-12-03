@@ -1,4 +1,4 @@
-const { GraphQLSchema, GraphQLObjectType } = require('graphql')
+const { GraphQLSchema, GraphQLObjectType, GraphQLBoolean } = require('graphql')
 
 // Queries
 const { usuario, usuarios } = require("./queries");
@@ -19,13 +19,18 @@ const QueryType = new GraphQLObjectType({
     },
 });
 
+const defaultMutation = {
+    type: GraphQLBoolean,
+    description: "default mutation",
+    resolve: () => { return true }
+}
+
 // Define MutationType
 const MutationType = new GraphQLObjectType({
     name: "MutationType",
     description: "Mutations",
     fields: {
-        register,
-        login,
+        defaultMutation,
     },
 });
 

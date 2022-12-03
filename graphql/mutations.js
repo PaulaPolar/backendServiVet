@@ -11,20 +11,16 @@ const register = {
     resolve: async (parent, args) => {
 
         const usuario = await createUsuario(
-            args.id_usuario,
             args.correo,
             args.clave,
             args.nombres,
             args.apellidos,
             args.numero_celular,
             args.id_pais,
-            args.id_rol,
+            2,
             args.direccion,
-            args.token_comprobacion,
-            args.activa_cuenta,
-            args.fecha_creacion,
+            new Date(),
             args.es_activa,
-            args.token_sesion
         )
 
         return createJWTToken(usuario);
