@@ -29,6 +29,17 @@ app.use(bodyParser.json());
 
 
 
+
+
+//base de datos
+// db.one('SELECT * FROM pais')
+//   .then((data) => {
+//     console.log('DATA:', data)
+//   })
+//   .catch((error) => {
+//     console.log('ERROR:', error)
+//   })
+
 //routes setup
 //app.get("/", (req, res) => {
 //res.send("Hola, este es el servidor para la pag de veterinaria c:");

@@ -1,7 +1,30 @@
 const { GraphQLSchema, GraphQLObjectType, GraphQLBoolean } = require('graphql')
 
 // Queries
-const { usuario, usuarios } = require("./queries");
+const {
+    usuario,
+    usuarios,
+    veterinaria,
+    veterinarias,
+    estado_cita,
+    estado_citas,
+    cita,
+    citas,
+    pais,
+    paises,
+    rol,
+    roles,
+    espacio_calendario,
+    espacios_calendarios,
+    // imagen_carrusel_veterinaria,
+    // imagenes_carrusel_veterinarias,
+    servicio_veterinaria,
+    servicios_veterinarias,
+    producto,
+    productos,
+    imagen,
+    imagenes
+} = require("./queries");
 
 // Mutations
 const {
@@ -15,7 +38,27 @@ const QueryType = new GraphQLObjectType({
     description: "Queries",
     fields: {
         usuario,
-        usuarios
+        usuarios,
+        veterinaria,
+        veterinarias,
+        estado_cita,
+        estado_citas,
+        cita,
+        citas,
+        pais,
+        paises,
+        rol,
+        roles,
+        espacio_calendario,
+        espacios_calendarios,
+        // imagen_carrusel_veterinaria,
+        // imagenes_carrusel_veterinarias,
+        servicio_veterinaria,
+        servicios_veterinarias,
+        producto,
+        productos,
+        imagen,
+        imagenes
     },
 });
 
