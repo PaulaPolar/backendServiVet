@@ -18,6 +18,19 @@ const getUsuario = async (id) => {
     return data;
 }
 
+const getUsuariosSegunRol = async (idRol) => {
+
+    data = await db.one(`SELECT * FROM public.usuario WHERE id_rol = ${idRol}`)
+        .then((data) => {
+            //console.log('DATA:', data)
+            return data
+        })
+        .catch((error) => {
+            console.log('ERROR:', error)
+        })
+    return data;
+}
+
 const compareCorreo = async (correo) => {
 
     data = await db.one(`SELECT * FROM public.usuario WHERE correo = $1`, [correo])
@@ -393,5 +406,6 @@ module.exports = {
     getUsuario,
     getUsuarios,
     createUsuario,
-    compareCorreo
+    compareCorreo,
+    getUsuariosSegunRol
 }

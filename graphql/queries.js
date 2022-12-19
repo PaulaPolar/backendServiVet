@@ -6,10 +6,11 @@ const {
     PaisType,
     RolType,
     EspacioCalendarioType,
-    ImagenCarruselVeterinariaType,
     ServicioVeterinariaType,
     ProductoType,
-    ImagenType } = require('./customTypes');
+    ImagenType
+} = require('./customTypes');
+
 const {
     getCita,
     getCitas,
@@ -31,6 +32,7 @@ const {
     getVeterinarias,
     getUsuario,
     getUsuarios,
+    getUsuariosSegunRol,
 } = require('../db/dbCalls');
 const { GraphQLList, GraphQLNonNull, GraphQLID } = require('graphql')
 
@@ -47,6 +49,15 @@ const usuarios = {
     type: new GraphQLList(UsuarioType),
     description: "obtener una lista de usuarios",
     resolve: () => { return getUsuarios() }
+}
+
+const usuariosSegunRol = {
+    type: new GraphQLList(UsuarioType),
+    description: "obtener una lista de usuarios segun rol",
+    args: {
+        idRol: { type: new GraphQLNonNull(GraphQLID) }
+    },
+    resolve: (parent, { idRol }) => { return getUsuariosSegunRol(idRol) }
 }
 
 const veterinaria = {
@@ -204,6 +215,7 @@ const imagenes = {
 module.exports = {
     usuario,
     usuarios,
+    usuariosSegunRol,
     veterinaria,
     veterinarias,
     estado_cita,

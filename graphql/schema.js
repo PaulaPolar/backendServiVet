@@ -4,6 +4,7 @@ const { GraphQLSchema, GraphQLObjectType, GraphQLBoolean } = require('graphql')
 const {
     usuario,
     usuarios,
+    usuariosSegunRol,
     veterinaria,
     veterinarias,
     estado_cita,
@@ -39,6 +40,7 @@ const QueryType = new GraphQLObjectType({
     fields: {
         usuario,
         usuarios,
+        usuariosSegunRol,
         veterinaria,
         veterinarias,
         estado_cita,
